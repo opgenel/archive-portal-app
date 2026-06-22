@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>乐鱼体育 · 持续关注，再次回访</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(145deg, #f0f7f8 0%, #e3f0f2 100%);
+            color: #1e2b2e;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 1.2rem;
+        }
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* 开场短句 — 故事氛围 */
+        .opening {
+            font-size: 1.7rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #1d4e5a;
+            background: rgba(255,255,255,0.55);
+            backdrop-filter: blur(4px);
+            padding: 1.8rem 2rem;
+            border-radius: 28px 28px 28px 8px;
+            margin: 1.2rem 0 1.8rem 0;
+            box-shadow: 0 6px 18px rgba(0,60,70,0.06);
+            border-left: 4px solid #2f8f9c;
+            word-break: break-word;
+        }
+        .opening strong {
+            font-weight: 600;
+            color: #0a5a68;
+        }
+
+        /* 承接段落 — 简洁专业 */
+        .bridge {
+            background: #ffffffd4;
+            backdrop-filter: blur(3px);
+            padding: 1.6rem 1.8rem;
+            border-radius: 24px;
+            margin-bottom: 2.2rem;
+            font-size: 1.05rem;
+            box-shadow: 0 2px 12px rgba(25,90,95,0.08);
+            color: #1a353b;
+        }
+        .bridge a {
+            color: #1d7e8c;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1.5px solid #7fc1cc;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .bridge a:hover {
+            color: #0b5b68;
+            border-bottom-color: #0b5b68;
+        }
+
+        /* 特点列表 — 网格卡片 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0 2.2rem 0;
+        }
+        .feature-card {
+            background: #ffffffed;
+            backdrop-filter: blur(2px);
+            border-radius: 24px;
+            padding: 1.4rem 1.2rem 1.2rem 1.2rem;
+            box-shadow: 0 4px 14px rgba(20,80,90,0.06);
+            transition: transform 0.15s ease, box-shadow 0.2s;
+            border: 1px solid #d5e9ec;
+        }
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(30,100,110,0.08);
+            border-color: #9ccfd6;
+        }
+        .feature-card .emoji-marker {
+            display: inline-block;
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+            color: #2c8f9b;
+        }
+        .feature-card h3 {
+            font-size: 1.08rem;
+            font-weight: 600;
+            color: #1d4a52;
+            margin: 0.2rem 0 0.4rem 0;
+            letter-spacing: 0.01em;
+        }
+        .feature-card p {
+            font-size: 0.92rem;
+            color: #294e56;
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        /* 温和结尾 + 收藏/持续关注 */
+        .gentle-closing {
+            background: #ecf7f9;
+            border-radius: 32px 8px 32px 8px;
+            padding: 1.8rem 1.8rem 2rem 1.8rem;
+            margin: 2rem 0 1.5rem 0;
+            box-shadow: 0 4px 8px rgba(0,60,70,0.04);
+            border: 1px solid #cde3e7;
+        }
+        .gentle-closing p {
+            font-size: 1rem;
+            color: #1d404a;
+            margin-bottom: 0.6rem;
+        }
+        .gentle-closing .highlight {
+            background: #2f8f9c1a;
+            padding: 0.1rem 0.4rem;
+            border-radius: 12px;
+            font-weight: 500;
+            color: #16535f;
+        }
+        .gentle-closing .bookmark-note {
+            display: inline-block;
+            margin-top: 0.2rem;
+            font-size: 0.95rem;
+            background: #ffffffba;
+            padding: 0.3rem 1rem 0.3rem 1.2rem;
+            border-radius: 40px;
+            border-left: 3px solid #2f8f9c;
+        }
+
+        /* 其他辅助细节 */
+        .subnote {
+            font-size: 0.9rem;
+            color: #3d6b73;
+            background: #ddeef1;
+            padding: 0.6rem 1.2rem;
+            border-radius: 60px;
+            display: inline-block;
+            margin-top: 0.8rem;
+        }
+        .faq-mini {
+            background: #ffffffc9;
+            backdrop-filter: blur(2px);
+            border-radius: 28px;
+            padding: 1rem 1.5rem 1.2rem 1.5rem;
+            margin: 1.8rem 0 1rem 0;
+            border: 1px solid #d0e4e8;
+        }
+        .faq-mini summary {
+            font-weight: 500;
+            color: #1d5b66;
+            padding: 0.3rem 0;
+            cursor: pointer;
+            font-size: 0.98rem;
+        }
+        .faq-mini p {
+            margin-top: 0.4rem;
+            font-size: 0.9rem;
+            color: #1c414b;
+        }
+
+        /* 场景段落 */
+        .scene-box {
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            padding: 1.2rem 1.6rem 1.4rem 1.6rem;
+            border-radius: 30px 8px 30px 8px;
+            margin: 1.8rem 0 1rem 0;
+            border-right: 3px solid #8ecbd2;
+        }
+
+        /* 响应式 */
+        @media (max-width: 540px) {
+            body { padding: 0.9rem; }
+            .opening { font-size: 1.3rem; padding: 1.2rem 1.2rem; }
+            .bridge { padding: 1.2rem 1.2rem; font-size: 0.98rem; }
+            .feature-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+            .feature-card { padding: 1rem 1rem 0.9rem 1rem; }
+            .gentle-closing { padding: 1.4rem 1.2rem; }
+            .faq-mini { padding: 0.8rem 1rem; }
+            .scene-box { padding: 1rem 1.2rem; }
+        }
+        @media (min-width: 700px) {
+            .opening { font-size: 2rem; padding: 2rem 2.4rem; }
+        }
+
+        footer {
+            margin-top: 2.5rem;
+            font-size: 0.75rem;
+            color: #4c7a82;
+            text-align: center;
+            letter-spacing: 0.3px;
+            border-top: 1px solid #bdd7dc;
+            padding-top: 1.4rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 开场短句：从再次访问切入 -->
+    <div class="opening">
+        有些平台值得再次打开。<br>
+        不是所有体育入口都让人有收藏的念头。<br>
+        <strong>乐鱼体育</strong> 是其中之一。
+    </div>
+
+    <!-- 承接段落：表达持续关注与回访理由 -->
+    <div class="bridge">
+        从第一次浏览到习惯性回访，之间隔着一个自然的选择。无论是赛程密度、数据呈现还是社区氛围，<a href="https://portal-app-leyu.com.cn">乐鱼体育</a> 在细节上保持了稳定的专业调性。无需反复适应，界面逻辑始终清晰——这也是为什么许多用户会在浏览器里为它单独留一个书签位。如果你还在寻找一个可以长期关注的体育信息节点，不妨重新打开上一次的页面，感受一下它现在的节奏。
+    </div>
+
+    <!-- 特点：网格卡片，聚焦收藏与持续使用的价值 -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <span class="emoji-marker">📌</span>
+            <h3>收藏即入口</h3>
+            <p>页面结构稳定，重要导航位置长期一致。收藏后每次回访路径最短，无需二次搜索。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji-marker">🔄</span>
+            <h3>内容滚动节奏</h3>
+            <p>信息更新频率与赛事周期吻合，不会过度推送，适合定期查看而非被动刷屏。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji-marker">📋</span>
+            <h3>赛事档案化</h3>
+            <p>历史数据、赛程回溯、队伍记录整合清晰，便于反复对照与分析，而不只是一次性阅读。</p>
+        </div>
+        <div class="feature-card">
+            <span class="emoji-marker">🔍</span>
+            <h3>低打扰浏览</h3>
+            <p>页面加载后焦点自然落在内容区，弹窗与浮层克制，阅读体验接近文档而非营销页面。</p>
+        </div>
+    </div>
+
+    <!-- 场景段落：描述回访场景 -->
+    <div class="scene-box">
+        <p><span style="background: #d1e9ed; padding: 0.1rem 0.6rem; border-radius: 30px; font-weight: 500;">📎 场景·再次打开</span></p>
+        <p style="margin-top: 0.6rem;">周末赛程密集时，你会需要一处信息锚点。不必从零开始导航，<a href="https://portal-app-leyu.com.cn" style="color: #1d7e8c; text-decoration: none; border-bottom: 1px solid #84c2cb;">乐鱼体育</a> 的首页布局让常用模块始终可见。从收藏夹点开，浏览两场关键数据，然后关闭——整个过程在三次点击以内完成。这种效率本身就是一种专业。</p>
+    </div>
+
+    <!-- 温和结尾 + 收藏/持续关注提示 -->
+    <div class="gentle-closing">
+        <p><span class="highlight">持续关注</span> 并不是一种负担，而是当你需要时，知道去哪里可以找到可靠的信息。</p>
+        <p>如果你已经访问过 <a href="https://portal-app-leyu.com.cn" style="color: #165f6b; font-weight: 500; text-decoration: none; border-bottom: 1.5px solid #7abdca;">乐鱼体育</a>，不妨再次打开它，看看近期的赛事整理与数据归纳。很多细节只有在多次浏览中才会被注意到：比如赛程表的时间颗粒度、数据面板的排序逻辑。</p>
+        <div class="bookmark-note">⭐ 书签栏里留一个位置，让再次访问成为习惯。</div>
+    </div>
+
+    <!-- FAQ 摘要 — 极简，只提一个真实相关点 -->
+    <div class="faq-mini">
+        <details>
+            <summary>关于回访与数据更新 · 简短说明</summary>
+            <p>页面内容根据赛事周期自然更新，无强制性推送。建议每次访问时留意首页顶部的时间戳与赛程标签，信息版本一目了然。无需反复刷新，数据会在合理间隔内同步。</p>
+        </details>
+    </div>
+
+    <!-- 辅助提示，不喧宾夺主 -->
+    <div class="subnote">
+        ◈ 页面适合收藏夹直达 · 适合赛前赛后快速查阅
+    </div>
+
+    <footer>
+        <span>— 再次访问，就是最好的肯定 —</span>
+    </footer>
+</div>
+</body>
+</html>
