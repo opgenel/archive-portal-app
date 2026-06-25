@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 产品说明页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fff3e0 0%, #fbe9d2 45%, #fde5c4 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #3d2e24;
+        }
+
+        .page-card {
+            max-width: 880px;
+            width: 100%;
+            background: #fffffffa;
+            backdrop-filter: blur(2px);
+            border-radius: 40px;
+            padding: 2.8rem 2.8rem 3rem;
+            box-shadow: 0 18px 40px -12px rgba(160, 100, 50, 0.18),
+                        0 4px 14px rgba(200, 150, 90, 0.08);
+            transition: box-shadow 0.25s;
+        }
+
+        .page-card:hover {
+            box-shadow: 0 22px 50px -12px rgba(150, 85, 30, 0.22);
+        }
+
+        .hero {
+            margin-bottom: 2.2rem;
+            border-bottom: 2px solid #f4ddd0;
+            padding-bottom: 1.4rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.01em;
+            color: #4f3728;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .hero h1 small {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #8f765e;
+            letter-spacing: 0.02em;
+            background: #faf0e8;
+            padding: 0.15rem 1rem;
+            border-radius: 40px;
+        }
+
+        .subhead {
+            font-size: 1.05rem;
+            color: #6f5541;
+            margin-top: 0.5rem;
+            max-width: 70%;
+            background: #efe3d8b3;
+            display: inline-block;
+            padding: 0.2rem 1.2rem;
+            border-radius: 30px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 530;
+            margin: 1.8rem 0 0.8rem 0;
+            color: #4e372a;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .section-title::before {
+            content: "—";
+            color: #bfa692;
+            font-weight: 300;
+            font-size: 1.2rem;
+        }
+
+        .summary {
+            background: #fcf7f2;
+            border-radius: 24px;
+            padding: 1.3rem 1.8rem;
+            margin: 0.6rem 0 1.4rem;
+            color: #3f3127;
+            border-left: 6px solid #dbbc9e;
+            font-size: 1rem;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 1rem 1.5rem;
+            margin: 0.8rem 0 1.2rem;
+        }
+
+        .highlight-item {
+            background: #faf2ea;
+            border-radius: 28px;
+            padding: 0.8rem 1.2rem;
+            border: 1px solid #edddcf;
+            font-size: 0.98rem;
+            transition: 0.15s;
+            display: flex;
+            gap: 0.5rem;
+            align-items: baseline;
+        }
+
+        .highlight-item span {
+            font-weight: 450;
+            color: #604432;
+        }
+
+        .usage-note {
+            background: #faf2ea;
+            border-radius: 28px;
+            padding: 1.4rem 1.8rem;
+            margin: 1.4rem 0;
+        }
+
+        .usage-note p {
+            margin-bottom: 0.5rem;
+        }
+
+        .usage-note ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+
+        .usage-note li {
+            padding: 0.2rem 0 0.2rem 1.4rem;
+            position: relative;
+        }
+
+        .usage-note li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #aa7f62;
+            font-weight: bold;
+        }
+
+        .faq-mini {
+            margin-top: 1.8rem;
+            padding-top: 0.8rem;
+            border-top: 2px solid #edd7c9;
+        }
+
+        .faq-mini details {
+            margin: 0.6rem 0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 24px;
+            background: #fcf6f0;
+            border: 1px solid #e7d4c4;
+            transition: 0.1s;
+        }
+
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 480;
+            color: #4f382b;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .faq-mini details p {
+            padding: 0.3rem 0.5rem 0.8rem 0.5rem;
+            color: #4d3b30;
+        }
+
+        .link-sentence {
+            background: #f4e6db;
+            border-radius: 40px;
+            padding: 1.2rem 2rem;
+            margin: 1.8rem 0 0.2rem;
+            font-size: 1.04rem;
+            display: inline-block;
+            width: auto;
+        }
+
+        a {
+            text-decoration: none;
+            font-weight: 470;
+            color: #834e2b;
+            border-bottom: 2px solid #e2c3ad;
+            padding-bottom: 0.05rem;
+            transition: 0.15s;
+            border-radius: 0;
+            background: transparent;
+        }
+
+        a:hover {
+            color: #b26a3a;
+            border-bottom-color: #b26a3a;
+            background: #f6e7da;
+            padding: 0.05rem 0.2rem;
+            margin: 0 -0.2rem;
+        }
+
+        .footnote {
+            margin-top: 2.2rem;
+            font-size: 0.88rem;
+            color: #7d6858;
+            border-top: 1px dashed #dac4b4;
+            padding-top: 1.2rem;
+            text-align: left;
+        }
+
+        @media (max-width: 500px) {
+            .page-card {
+                padding: 1.8rem 1.2rem 2rem;
+                border-radius: 28px;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+                flex-wrap: wrap;
+            }
+
+            .subhead {
+                max-width: 100%;
+                font-size: 0.9rem;
+            }
+
+            .highlight-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .link-sentence {
+                padding: 1rem 1.2rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-card">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>
+            <span>爱游戏</span>
+            <small>产品说明</small>
+        </h1>
+        <div class="subhead">稳定入口 · 页面说明</div>
+    </div>
+
+    <!-- 摘要 -->
+    <div class="section-title">摘要</div>
+    <div class="summary">
+        <p><strong>爱游戏</strong> 是一个面向日常娱乐与轻度竞技的在线游戏平台，围绕简洁、低门槛的体验提供多种休闲游戏内容。平台本身不强调复杂注册或长期绑定，用户可通过通用浏览器直接访问，在几分钟内进入对局或单人挑战。我们在这里梳理几个关键特点和最实际的使用方式，方便你快速了解它是否适合自己。</p>
+    </div>
+
+    <!-- 亮点 / 特点 -->
+    <div class="section-title">亮点</div>
+    <div class="highlight-grid">
+        <div class="highlight-item"><span>轻启动</span> — 无需下载安装，浏览器打开即用</div>
+        <div class="highlight-item"><span>低门槛</span> — 基础游戏规则直观，上手成本不高</div>
+        <div class="highlight-item"><span>场景灵活</span> — 适合碎片时间、社交小聚或独自放松</div>
+        <div class="highlight-item"><span>反馈直接</span> — 界面响应及时，操作反馈清晰</div>
+        <div class="highlight-item"><span>持续更新</span> — 不定期加入新玩法或主题内容</div>
+        <div class="highlight-item"><span>无强制推送</span> — 不诱导常驻，用完即走</div>
+    </div>
+
+    <!-- 使用建议 / 适用场景 -->
+    <div class="section-title">使用建议</div>
+    <div class="usage-note">
+        <p style="font-weight: 470; margin-bottom: 0.3rem;">如何获得比较舒适的体验：</p>
+        <ul>
+            <li>使用主流浏览器（Chrome、Edge、Safari 较新版本），体验更顺畅；</li>
+            <li>网络环境稳定时打开，部分游戏需要即时同步；</li>
+            <li>如果遇到加载缓慢，可以刷新页面或稍后再试；</li>
+            <li>不需要注册即可体验大部分内容，但部分功能可能需临时标识；</li>
+            <li>建议将 <strong>爱游戏</strong> 放入书签，下次直接打开，省去搜索时间。</li>
+        </ul>
+    </div>
+
+    <!-- 可信但克制的访问说明 + 链接自然嵌入 -->
+    <div class="section-title">访问说明</div>
+    <p style="margin: 0.4rem 0 0.8rem;">
+        <strong>爱游戏</strong> 的入口地址长期稳定，不依赖第三方跳转。你可以在浏览器中直接输入 
+        <a href="https://zhsports-igame.com">爱游戏</a> 
+        的域名进入主页。该地址已运行相当一段时间，未出现过无故变更或频繁中断的情况。需要留意的是，任何在线服务都可能因网络、服务器维护或不可控因素暂时不可用，如果你遇到打不开的情况，建议间隔半小时再尝试，通常能恢复。
+    </p>
+    <p style="margin: 0.6rem 0;">
+        另外，我们不推荐通过非官方渠道（如不明链接、第三方下载站）访问，以免遇到仿冒界面或额外风险。保持使用书签中的 
+        <a href="https://zhsports-igame.com">爱游戏</a> 
+        是最直接也最可靠的方式。
+    </p>
+
+    <!-- FAQ 摘要 (轻量) -->
+    <div class="faq-mini">
+        <div class="section-title" style="margin-top: 0.2rem;">常见疑问</div>
+        <details>
+            <summary>需要注册账号吗？</summary>
+            <p>大部分游戏无需注册就能直接玩。部分排行榜或好友对战功能可能会要求一个临时昵称，但不需要绑定手机或邮箱。</p>
+        </details>
+        <details>
+            <summary>适合在手机上使用吗？</summary>
+            <p>页面做了基本的响应式适配，手机浏览器横竖屏都可以操作。但部分游戏在较小屏幕上按钮可能偏紧凑，建议在平板或桌面获得更完整的体验。</p>
+        </details>
+        <details>
+            <summary>游戏加载慢怎么办？</summary>
+            <p>先确认网络是否正常，可尝试刷新页面或切换 Wi-Fi / 移动数据。如果仍然缓慢，可能是服务器端临时负载较高，稍后使用一般会改善。</p>
+        </details>
+    </div>
+
+    <!-- 自然收尾 -->
+    <div class="footnote">
+        <span>以上内容基于 爱游戏 当前版本整理，产品细节可能随迭代调整。本页仅作为说明参考，不构成任何承诺。</span>
+    </div>
+</div>
+</body>
+</html>
